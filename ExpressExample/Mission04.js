@@ -30,8 +30,7 @@ var storage = multer.diskStorage({
 	filename: function(req, file, callback) {
 		var extension = path.extname(file.originalname);
 		var basename = path.basename(file.originalname, extension);
-		//저장은 현재 시간으로 되게
-		callback(null, Date.now() + extension);
+		callback(null, basename + Date.now() + extension);
 	}
 });
 
